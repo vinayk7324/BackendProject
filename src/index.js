@@ -11,8 +11,20 @@ env.config({
 
 
 
+//after completing asynchronous method it returns promise
+connectDB()
+.then(()=>{
+app.listen(process.env.PORT || 8000,()=>{
+    console.log(`server is running at ${process.env.PORT}`);
+})
+    
 
-connectDB();
+    
+
+})
+.catch((err)=>{
+    console.log("MONGO DB connection failed !!!",err);
+})
 
 
 
